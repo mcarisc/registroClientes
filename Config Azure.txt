@@ -1,0 +1,65 @@
+az mysql flexible-server create \
+  --name mysqlbdgerald2025 \
+  --resource-group app-persons-spring \
+  --location southcentralus \
+  --admin-user dbadmin \
+  --admin-password "Db\$2025!Secure" \
+  --sku-name Standard_B1ms \
+  --storage-size 32 \
+  --public-access 0.0.0.0
+
+
+{
+  "connectionString": "mysql flexibleserverdb --host mysqlbdgerald2025.mysql.database.azure.com --user dbadmin --password=Znt1nuG_PCyTsG8G4Teipw",
+  "databaseName": "flexibleserverdb",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2025-7-10_3-12-34",
+  "host": "mysqlbdgerald2025.mysql.database.azure.com",
+  "id": "/subscriptions/107e9d2e-0387-4b86-99bd-3157d19726df/resourceGroups/app-persons-spring/providers/Microsoft.DBforMySQL/flexibleServers/mysqlbdgerald2025",
+  "location": "South Central US",
+  "password": "Znt1nuG_PCyTsG8G4Teipw",
+  "resourceGroup": "app-persons-spring",
+  "skuname": "Standard_B1ms",
+  "username": "dbadmin",
+  "version": "8.0.21"
+}
+
+spring.datasource.url=jdbc:mysql://mysqlbdgerald2025.mysql.database.azure.com:3306/flexibleserverdb?useSSL=false&serverTimezone=UTC
+spring.datasource.username=dbadmin
+spring.datasource.password=Znt1nuG_PCyTsG8G4Teipw
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+# Conexi\u00F3n a MySQL
+spring.datasource.url=jdbc:mysql://localhost/test?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+az webapp deployment source config-zip --resource-group app-persons-spring --name miapp-springboot --src app.zip
+{
+  "id": "/subscriptions/107e9d2e-0387-4b86-99bd-3157d19726df/resourceGroups/app-persons-spring/providers/Microsoft.Web/sites/miapp-springboot/deploymentStatus/e2a07c7f-a3da-465c-9e07-e044354389da",
+  "location": "Canada Central",
+  "name": "e2a07c7f-a3da-465c-9e07-e044354389da",
+  "properties": {
+    "deploymentId": "e2a07c7f-a3da-465c-9e07-e044354389da",
+    "errors": null,
+    "failedInstancesLogs": null,
+    "numberOfInstancesFailed": 0,
+    "numberOfInstancesInProgress": 0,
+    "numberOfInstancesSuccessful": 1,
+    "status": "RuntimeSuccessful"
+  },
+  "resourceGroup": "app-persons-spring",
+  "tags": {
+    "hidden-link: /app-insights-resource-id": "/subscriptions/107e9d2e-0387-4b86-99bd-3157d19726df/resourceGroups/app-persons-spring/providers/microsoft.insights/components/miapp-springboot"
+  },
+  "type": "Microsoft.Web/sites/deploymentStatus"
+}
+
+
+java -jar proyectoapi.jar
+
+{  "shellProps": {    "sessionId": "90045e5248df426db235746b65ed1a10",    "extName": "HubsExtension",    "contentName": "NotFoundAssetBlade"  },  "error": {    "message": "Recurso no encontrado",    "code": 404,    "details": {      "htmlTemplate": "No se encontró el recurso, por lo que puede que se haya eliminado. Si se inició desde un icono anclado en el panel, debería quitarse.\r<br />\r<br />Id. de recurso: /subscriptions/107e9d2e-0387-4b86-99bd-3157d19726df/resourceGroups/app-persons-spring/providers/Microsoft.Web/sites/miapp-springboot/slots/bfcpdtenhyeqc4gk\r<br />\r<br />Código de estado: 404\r<br />\r<br />Mensaje de estado: no disponible"    }  }}
+
+
